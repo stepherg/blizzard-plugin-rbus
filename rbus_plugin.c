@@ -22,7 +22,6 @@
 #define PLUGIN_NAME "org.rdk.broadband.TR181.1"
 #define READ_BUFFER_SIZE 32768
 
-
 static void send_message(int sock, uint8_t *buf, size_t len) {
    write(sock, buf, len);
 }
@@ -88,23 +87,11 @@ static void send_registration_request(int sock) {
    Blizzard__Descriptor__Descriptor param_get_path_list_items = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
    Google__Protobuf__Any result_any_get = GOOGLE__PROTOBUF__ANY__INIT;
    Blizzard__Descriptor__Descriptor result_schema_get = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__List result_list_get = BLIZZARD__DESCRIPTOR__LIST__INIT;
-   Blizzard__Descriptor__Descriptor result_list_items_get = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__Object result_obj_get = BLIZZARD__DESCRIPTOR__OBJECT__INIT;
-   Blizzard__Descriptor__Object__PropertiesEntry result_get_key_entry = BLIZZARD__DESCRIPTOR__OBJECT__PROPERTIES_ENTRY__INIT;
-   Blizzard__Descriptor__Descriptor result_get_key_value = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__Object__PropertiesEntry result_get_value_entry = BLIZZARD__DESCRIPTOR__OBJECT__PROPERTIES_ENTRY__INIT;
-   Blizzard__Descriptor__Descriptor result_get_value_value = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
 
    // Static allocations for set method
    Blizzard__Plugin__Description__MethodDescription method_set = BLIZZARD__PLUGIN__DESCRIPTION__METHOD_DESCRIPTION__INIT;
    Google__Protobuf__Any param_any_set = GOOGLE__PROTOBUF__ANY__INIT;
    Blizzard__Descriptor__Descriptor param_schema_set = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__Object param_obj_set = BLIZZARD__DESCRIPTOR__OBJECT__INIT;
-   Blizzard__Descriptor__Object__PropertiesEntry param_set_key_entry = BLIZZARD__DESCRIPTOR__OBJECT__PROPERTIES_ENTRY__INIT;
-   Blizzard__Descriptor__Descriptor param_set_key_value = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__Object__PropertiesEntry param_set_value_entry = BLIZZARD__DESCRIPTOR__OBJECT__PROPERTIES_ENTRY__INIT;
-   Blizzard__Descriptor__Descriptor param_set_value_value = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
    Google__Protobuf__Any result_any_set = GOOGLE__PROTOBUF__ANY__INIT;
    Blizzard__Descriptor__Descriptor result_schema_set = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
 
@@ -112,27 +99,8 @@ static void send_registration_request(int sock) {
    Blizzard__Plugin__Description__MethodDescription method_invoke = BLIZZARD__PLUGIN__DESCRIPTION__METHOD_DESCRIPTION__INIT;
    Google__Protobuf__Any param_any_invoke = GOOGLE__PROTOBUF__ANY__INIT;
    Blizzard__Descriptor__Descriptor param_schema_invoke = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__Object param_obj_invoke = BLIZZARD__DESCRIPTOR__OBJECT__INIT;
-   Blizzard__Descriptor__Object__PropertiesEntry param_invoke_method_entry = BLIZZARD__DESCRIPTOR__OBJECT__PROPERTIES_ENTRY__INIT;
-   Blizzard__Descriptor__Descriptor param_invoke_method_value = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__Object__PropertiesEntry param_invoke_params_entry = BLIZZARD__DESCRIPTOR__OBJECT__PROPERTIES_ENTRY__INIT;
-   Blizzard__Descriptor__Descriptor param_invoke_params_value = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__List param_invoke_params_list = BLIZZARD__DESCRIPTOR__LIST__INIT;
-   Blizzard__Descriptor__Descriptor param_invoke_params_list_items = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__Object param_invoke_params_obj = BLIZZARD__DESCRIPTOR__OBJECT__INIT;
-   Blizzard__Descriptor__Object__PropertiesEntry param_invoke_params_key_entry = BLIZZARD__DESCRIPTOR__OBJECT__PROPERTIES_ENTRY__INIT;
-   Blizzard__Descriptor__Descriptor param_invoke_params_key_value = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__Object__PropertiesEntry param_invoke_params_value_entry = BLIZZARD__DESCRIPTOR__OBJECT__PROPERTIES_ENTRY__INIT;
-   Blizzard__Descriptor__Descriptor param_invoke_params_value_value = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
    Google__Protobuf__Any result_any_invoke = GOOGLE__PROTOBUF__ANY__INIT;
    Blizzard__Descriptor__Descriptor result_schema_invoke = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__List result_list_invoke = BLIZZARD__DESCRIPTOR__LIST__INIT;
-   Blizzard__Descriptor__Descriptor result_list_items_invoke = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__Object result_obj_invoke = BLIZZARD__DESCRIPTOR__OBJECT__INIT;
-   Blizzard__Descriptor__Object__PropertiesEntry result_invoke_key_entry = BLIZZARD__DESCRIPTOR__OBJECT__PROPERTIES_ENTRY__INIT;
-   Blizzard__Descriptor__Descriptor result_invoke_key_value = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
-   Blizzard__Descriptor__Object__PropertiesEntry result_invoke_value_entry = BLIZZARD__DESCRIPTOR__OBJECT__PROPERTIES_ENTRY__INIT;
-   Blizzard__Descriptor__Descriptor result_invoke_value_value = BLIZZARD__DESCRIPTOR__DESCRIPTOR__INIT;
 
    // Initialize dynamic buffers
    uint8_t *param_buf_get = NULL;
@@ -176,23 +144,9 @@ static void send_registration_request(int sock) {
    param_any_get.value.len = param_size_get;
    param_any_get.value.data = param_buf_get;
 
-   // Result schema for 'get': list of { "key": string, "value": string }
-   result_schema_get.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_LIST;
-   result_schema_get.list = &result_list_get;
-   result_list_get.items = &result_list_items_get;
-   result_list_items_get.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_OBJECT;
-   result_list_items_get.object = &result_obj_get;
-   result_get_key_entry.key = "key";
-   result_get_key_entry.value = &result_get_key_value;
-   result_get_key_value.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
-   result_get_key_value.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__STRING;
-   result_get_value_entry.key = "value";
-   result_get_value_entry.value = &result_get_value_value;
-   result_get_value_value.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
-   result_get_value_value.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__STRING;
-   Blizzard__Descriptor__Object__PropertiesEntry *result_get_entries[] = {&result_get_key_entry, &result_get_value_entry};
-   result_obj_get.n_properties = sizeof(result_get_entries) / sizeof(result_get_entries[0]);
-   result_obj_get.properties = result_get_entries;
+   // Result schema for 'get': any_object
+   result_schema_get.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
+   result_schema_get.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__ANY_OBJECT;
 
    size_t result_size_get = blizzard__descriptor__descriptor__get_packed_size(&result_schema_get);
    result_buf_get = malloc(result_size_get);
@@ -212,20 +166,9 @@ static void send_registration_request(int sock) {
    method_set.parameters_schema = &param_any_set;
    method_set.result_schema = &result_any_set;
 
-   // Parameters schema for 'set': object { "key": string, "value": string }
-   param_schema_set.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_OBJECT;
-   param_schema_set.object = &param_obj_set;
-   param_set_key_entry.key = "key";
-   param_set_key_entry.value = &param_set_key_value;
-   param_set_key_value.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
-   param_set_key_value.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__STRING;
-   param_set_value_entry.key = "value";
-   param_set_value_entry.value = &param_set_value_value;
-   param_set_value_value.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
-   param_set_value_value.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__STRING;
-   Blizzard__Descriptor__Object__PropertiesEntry *param_set_entries[] = {&param_set_key_entry, &param_set_value_entry};
-   param_obj_set.n_properties = sizeof(param_set_entries) / sizeof(param_set_entries[0]);
-   param_obj_set.properties = param_set_entries;
+   // Parameters schema for 'set': any_object
+   param_schema_set.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
+   param_schema_set.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__ANY_OBJECT;
 
    size_t param_size_set = blizzard__descriptor__descriptor__get_packed_size(&param_schema_set);
    param_buf_set = malloc(param_size_set);
@@ -260,35 +203,9 @@ static void send_registration_request(int sock) {
    method_invoke.parameters_schema = &param_any_invoke;
    method_invoke.result_schema = &result_any_invoke;
 
-   // Parameters schema for 'invoke': object { "method": string, "params": list<{key: string, value: any}> }
-   param_schema_invoke.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_OBJECT;
-   param_schema_invoke.object = &param_obj_invoke;
-   param_invoke_method_entry.key = "method";
-   param_invoke_method_entry.value = &param_invoke_method_value;
-   param_invoke_method_value.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
-   param_invoke_method_value.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__STRING;
-   param_invoke_params_entry.key = "params";
-   param_invoke_params_entry.value = &param_invoke_params_value;
-   param_invoke_params_value.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_LIST;
-   param_invoke_params_value.list = &param_invoke_params_list;
-   param_invoke_params_list.items = &param_invoke_params_list_items;
-   param_invoke_params_list_items.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_OBJECT;
-   param_invoke_params_list_items.object = &param_invoke_params_obj;
-   param_invoke_params_key_entry.key = "key";
-   param_invoke_params_key_entry.value = &param_invoke_params_key_value;
-   param_invoke_params_key_value.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
-   param_invoke_params_key_value.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__STRING;
-   param_invoke_params_value_entry.key = "value";
-   param_invoke_params_value_entry.value = &param_invoke_params_value_value;
-   param_invoke_params_value_value.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
-   param_invoke_params_value_value.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__ANY;
-   Blizzard__Descriptor__Object__PropertiesEntry *param_invoke_params_entries[] = {&param_invoke_params_key_entry, &param_invoke_params_value_entry};
-   param_invoke_params_obj.n_properties = sizeof(param_invoke_params_entries) / sizeof(param_invoke_params_entries[0]);
-   param_invoke_params_obj.properties = param_invoke_params_entries;
-   Blizzard__Descriptor__Object__PropertiesEntry *param_invoke_entries[] = {&param_invoke_method_entry, &param_invoke_params_entry};
-   param_obj_invoke.n_properties = sizeof(param_invoke_entries) / sizeof(param_invoke_entries[0]);
-   param_obj_invoke.properties = param_invoke_entries;
-
+   // Parameters schema for 'invoke': any_object
+   param_schema_invoke.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
+   param_schema_invoke.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__ANY_OBJECT;
    size_t param_size_invoke = blizzard__descriptor__descriptor__get_packed_size(&param_schema_invoke);
    param_buf_invoke = malloc(param_size_invoke);
    if (!param_buf_invoke) {
@@ -300,23 +217,9 @@ static void send_registration_request(int sock) {
    param_any_invoke.value.len = param_size_invoke;
    param_any_invoke.value.data = param_buf_invoke;
 
-   // Result schema for 'invoke': list of { "key": string, "value": string }
-   result_schema_invoke.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_LIST;
-   result_schema_invoke.list = &result_list_invoke;
-   result_list_invoke.items = &result_list_items_invoke;
-   result_list_items_invoke.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_OBJECT;
-   result_list_items_invoke.object = &result_obj_invoke;
-   result_invoke_key_entry.key = "key";
-   result_invoke_key_entry.value = &result_invoke_key_value;
-   result_invoke_key_value.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
-   result_invoke_key_value.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__STRING;
-   result_invoke_value_entry.key = "value";
-   result_invoke_value_entry.value = &result_invoke_value_value;
-   result_invoke_value_value.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
-   result_invoke_value_value.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__STRING;
-   Blizzard__Descriptor__Object__PropertiesEntry *result_invoke_entries[] = {&result_invoke_key_entry, &result_invoke_value_entry};
-   result_obj_invoke.n_properties = sizeof(result_invoke_entries) / sizeof(result_invoke_entries[0]);
-   result_obj_invoke.properties = result_invoke_entries;
+   // Result schema for 'invoke': any_object
+   result_schema_invoke.kind_case = BLIZZARD__DESCRIPTOR__DESCRIPTOR__KIND_BASIC;
+   result_schema_invoke.basic = BLIZZARD__DESCRIPTOR__BASIC_TYPES__ANY_OBJECT;
 
    size_t result_size_invoke = blizzard__descriptor__descriptor__get_packed_size(&result_schema_invoke);
    result_buf_invoke = malloc(result_size_invoke);
@@ -391,227 +294,193 @@ cleanup:
    free(param_buf_get);
 }
 
-// Helper function to build key-value list for protobuf response
-static bool build_keyvalue_list(KeyValuePair *results, int num_results, Blizzard__Value__Value *result_value, char **error_msg) {
-   Blizzard__Value__List *result_list = malloc(sizeof(Blizzard__Value__List));
-   if (!result_list) {
-      *error_msg = "Malloc failed for result_list";
-      return false;
+// Helper function to serialize a Blizzard__Value__Object to a simple string
+static char *serialize_object_to_string(Blizzard__Value__Object *obj) {
+   // Simple stringification: create a string with key-value pairs
+   // For production, consider a proper JSON library if needed
+   size_t total_len = 2; // For "{}"
+   for (size_t i = 0; i < obj->n_children; i++) {
+      total_len += strlen(obj->children[i]->key) + 3; // key + ":" + quotes
+      switch (obj->children[i]->value->kind_case) {
+      case BLIZZARD__VALUE__VALUE__KIND_STRING:
+         total_len += strlen(obj->children[i]->value->string) + 2; // quotes
+         break;
+      case BLIZZARD__VALUE__VALUE__KIND_INTEGER:
+         total_len += 20; // Enough for a 64-bit integer
+         break;
+      case BLIZZARD__VALUE__VALUE__KIND_DOUBLE:
+         total_len += 32; // Enough for a double
+         break;
+      case BLIZZARD__VALUE__VALUE__KIND_BOOLEAN:
+         total_len += 6; // "true" or "false"
+         break;
+      case BLIZZARD__VALUE__VALUE__KIND_BYTES:
+         total_len += obj->children[i]->value->bytes.len * 2 + 2; // Hex string + quotes
+         break;
+      case BLIZZARD__VALUE__VALUE__KIND_OBJECT:
+         total_len += 32; // Placeholder for nested object
+         break;
+      default:
+         total_len += 10; // Fallback for unknown types
+      }
+      total_len += 2; // For ", " or closing brace
    }
-   blizzard__value__list__init(result_list);
-   result_value->kind_case = BLIZZARD__VALUE__VALUE__KIND_LIST;
-   result_value->list = result_list;
 
-   Blizzard__Value__Value **result_elements = malloc(num_results * sizeof(Blizzard__Value__Value *));
-   if (!result_elements) {
-      *error_msg = "Malloc failed for result_elements";
+   char *result = malloc(total_len);
+   if (!result) return NULL;
+   result[0] = '{';
+   size_t offset = 1;
+
+   for (size_t i = 0; i < obj->n_children; i++) {
+      offset += snprintf(result + offset, total_len - offset, "\"%s\":", obj->children[i]->key);
+      switch (obj->children[i]->value->kind_case) {
+      case BLIZZARD__VALUE__VALUE__KIND_STRING:
+         offset += snprintf(result + offset, total_len - offset, "\"%s\"", obj->children[i]->value->string);
+         break;
+      case BLIZZARD__VALUE__VALUE__KIND_INTEGER:
+         offset += snprintf(result + offset, total_len - offset, "%" PRId64, obj->children[i]->value->integer);
+         break;
+      case BLIZZARD__VALUE__VALUE__KIND_DOUBLE:
+         offset += snprintf(result + offset, total_len - offset, "%g", obj->children[i]->value->double_);
+         break;
+      case BLIZZARD__VALUE__VALUE__KIND_BOOLEAN:
+         offset += snprintf(result + offset, total_len - offset, "%s", obj->children[i]->value->boolean ? "true" : "false");
+         break;
+      case BLIZZARD__VALUE__VALUE__KIND_BYTES: {
+         // Convert bytes to hex string
+         for (size_t j = 0; j < obj->children[i]->value->bytes.len && offset < total_len - 3; j++) {
+            offset += snprintf(result + offset, total_len - offset, "%02x", obj->children[i]->value->bytes.data[j]);
+         }
+         break;
+      }
+      case BLIZZARD__VALUE__VALUE__KIND_OBJECT:
+         offset += snprintf(result + offset, total_len - offset, "\"[object]\""); // Placeholder
+         break;
+      default:
+         offset += snprintf(result + offset, total_len - offset, "\"unknown\"");
+      }
+      if (i < obj->n_children - 1) {
+         offset += snprintf(result + offset, total_len - offset, ",");
+      }
+   }
+   snprintf(result + offset, total_len - offset, "}");
+   return result;
+}
+
+// Helper function to build key-value object for protobuf response
+static bool build_keyvalue_object(KeyValuePair *results, int num_results, Blizzard__Value__Value *result_value, char **error_msg) {
+   Blizzard__Value__Object *result_obj = malloc(sizeof(Blizzard__Value__Object));
+   if (!result_obj) {
+      *error_msg = "Malloc failed for result_obj";
       return false;
    }
-   result_list->elements = result_elements;
-   int valid_elements = 0;
+   blizzard__value__object__init(result_obj);
+   result_value->kind_case = BLIZZARD__VALUE__VALUE__KIND_OBJECT;
+   result_value->object = result_obj;
+
+   Blizzard__Value__Object__ChildrenEntry **children = malloc(num_results * sizeof(Blizzard__Value__Object__ChildrenEntry *));
+   if (!children) {
+      *error_msg = "Malloc failed for children";
+      free(result_obj);
+      return false;
+   }
+   result_obj->children = children;
+   int valid_children = 0;
 
    for (int i = 0; i < num_results; i++) {
-      Blizzard__Value__Value *elem = malloc(sizeof(Blizzard__Value__Value));
-      if (!elem) {
-         *error_msg = "Malloc failed for elem";
+      Blizzard__Value__Object__ChildrenEntry *entry = malloc(sizeof(Blizzard__Value__Object__ChildrenEntry));
+      if (!entry) {
+         *error_msg = "Malloc failed for entry";
          goto build_fail;
       }
-      blizzard__value__value__init(elem);
-
-      Blizzard__Value__Object *elem_obj = malloc(sizeof(Blizzard__Value__Object));
-      if (!elem_obj) {
-         *error_msg = "Malloc failed for elem_obj";
-         free(elem);
-         goto build_fail;
-      }
-      blizzard__value__object__init(elem_obj);
-      elem->kind_case = BLIZZARD__VALUE__VALUE__KIND_OBJECT;
-      elem->object = elem_obj;
-
-      Blizzard__Value__Object__ChildrenEntry *key_entry = malloc(sizeof(Blizzard__Value__Object__ChildrenEntry));
-      if (!key_entry) {
-         *error_msg = "Malloc failed for key_entry";
-         free(elem_obj);
-         free(elem);
-         goto build_fail;
-      }
-      blizzard__value__object__children_entry__init(key_entry);
-      key_entry->key = strdup("key");
-      if (!key_entry->key) {
+      blizzard__value__object__children_entry__init(entry);
+      entry->key = strdup(results[i].key);
+      if (!entry->key) {
          *error_msg = "strdup failed for key";
-         free(key_entry);
-         free(elem_obj);
-         free(elem);
+         free(entry);
          goto build_fail;
       }
 
-      Blizzard__Value__Value *key_value = malloc(sizeof(Blizzard__Value__Value));
-      if (!key_value) {
-         *error_msg = "Malloc failed for key_value";
-         free(key_entry->key);
-         free(key_entry);
-         free(elem_obj);
-         free(elem);
+      Blizzard__Value__Value *val = malloc(sizeof(Blizzard__Value__Value));
+      if (!val) {
+         *error_msg = "Malloc failed for val";
+         free(entry->key);
+         free(entry);
          goto build_fail;
       }
-      blizzard__value__value__init(key_value);
-      key_value->kind_case = BLIZZARD__VALUE__VALUE__KIND_STRING;
-      key_value->string = strdup(results[i].key);
-      if (!key_value->string) {
-         *error_msg = "strdup failed for key string";
-         free(key_value);
-         free(key_entry->key);
-         free(key_entry);
-         free(elem_obj);
-         free(elem);
-         goto build_fail;
-      }
-      key_entry->value = key_value;
-
-      Blizzard__Value__Object__ChildrenEntry *value_entry = malloc(sizeof(Blizzard__Value__Object__ChildrenEntry));
-      if (!value_entry) {
-         *error_msg = "Malloc failed for value_entry";
-         free(key_value->string);
-         free(key_value);
-         free(key_entry->key);
-         free(key_entry);
-         free(elem_obj);
-         free(elem);
-         goto build_fail;
-      }
-      blizzard__value__object__children_entry__init(value_entry);
-      value_entry->key = strdup("value");
-      if (!value_entry->key) {
-         *error_msg = "strdup failed for value";
-         free(value_entry);
-         free(key_value->string);
-         free(key_value);
-         free(key_entry->key);
-         free(key_entry);
-         free(elem_obj);
-         free(elem);
-         goto build_fail;
-      }
-
-      Blizzard__Value__Value *value_value = malloc(sizeof(Blizzard__Value__Value));
-      if (!value_value) {
-         *error_msg = "Malloc failed for value_value";
-         free(value_entry->key);
-         free(value_entry);
-         free(key_value->string);
-         free(key_value);
-         free(key_entry->key);
-         free(key_entry);
-         free(elem_obj);
-         free(elem);
-         goto build_fail;
-      }
-      blizzard__value__value__init(value_value);
-      value_value->kind_case = BLIZZARD__VALUE__VALUE__KIND_STRING;
-      size_t str_len = VALUE_TYPE_SIZE;
-      if (results[i].type == VALUE_TYPE_BYTES) {
-         str_len = 2 * results[i].value.bytes.len + 1;
-      }
-      value_value->string = malloc(str_len);
-      if (!value_value->string) {
-         *error_msg = "Malloc failed for value string";
-         free(value_value);
-         free(value_entry->key);
-         free(value_entry);
-         free(key_value->string);
-         free(key_value);
-         free(key_entry->key);
-         free(key_entry);
-         free(elem_obj);
-         free(elem);
-         goto build_fail;
-      }
+      blizzard__value__value__init(val);
 
       switch (results[i].type) {
       case VALUE_TYPE_STRING:
-         strncpy(value_value->string, results[i].value.string, str_len - 1);
-         value_value->string[str_len - 1] = '\0';
+         val->kind_case = BLIZZARD__VALUE__VALUE__KIND_STRING;
+         val->string = strdup(results[i].value.string);
+         if (!val->string) {
+            *error_msg = "strdup failed for string value";
+            free(val);
+            free(entry->key);
+            free(entry);
+            goto build_fail;
+         }
          break;
       case VALUE_TYPE_INTEGER:
-         snprintf(value_value->string, str_len, "%" PRIi64, results[i].value.integer);
+         val->kind_case = BLIZZARD__VALUE__VALUE__KIND_INTEGER;
+         val->integer = results[i].value.integer;
          break;
       case VALUE_TYPE_DOUBLE:
-         snprintf(value_value->string, str_len, "%f", results[i].value.double_val);
+         val->kind_case = BLIZZARD__VALUE__VALUE__KIND_DOUBLE;
+         val->double_ = results[i].value.double_val;
          break;
       case VALUE_TYPE_BOOLEAN:
-         strcpy(value_value->string, results[i].value.boolean ? "true" : "false");
+         val->kind_case = BLIZZARD__VALUE__VALUE__KIND_BOOLEAN;
+         val->boolean = results[i].value.boolean;
          break;
       case VALUE_TYPE_BYTES:
-         for (size_t k = 0; k < results[i].value.bytes.len; k++) {
-            snprintf(value_value->string + 2 * k, 3, "%02x", results[i].value.bytes.data[k]);
+         val->kind_case = BLIZZARD__VALUE__VALUE__KIND_BYTES;
+         val->bytes.len = results[i].value.bytes.len;
+         val->bytes.data = malloc(val->bytes.len);
+         if (!val->bytes.data) {
+            *error_msg = "Malloc failed for bytes value";
+            free(val);
+            free(entry->key);
+            free(entry);
+            goto build_fail;
          }
-         value_value->string[2 * results[i].value.bytes.len] = '\0';
+         memcpy(val->bytes.data, results[i].value.bytes.data, val->bytes.len);
          break;
       default:
          *error_msg = "Unsupported type in results";
-         free(value_value->string);
-         free(value_value);
-         free(value_entry->key);
-         free(value_entry);
-         free(key_value->string);
-         free(key_value);
-         free(key_entry->key);
-         free(key_entry);
-         free(elem_obj);
-         free(elem);
+         free(val);
+         free(entry->key);
+         free(entry);
          goto build_fail;
       }
-      value_entry->value = value_value;
-
-      Blizzard__Value__Object__ChildrenEntry *children[] = {key_entry, value_entry};
-      elem_obj->n_children = sizeof(children) / sizeof(children[0]);
-      elem_obj->children = malloc(elem_obj->n_children * sizeof(Blizzard__Value__Object__ChildrenEntry *));
-      if (!elem_obj->children) {
-         *error_msg = "Malloc failed for children array";
-         free(value_value->string);
-         free(value_value);
-         free(value_entry->key);
-         free(value_entry);
-         free(key_value->string);
-         free(key_value);
-         free(key_entry->key);
-         free(key_entry);
-         free(elem_obj);
-         free(elem);
-         goto build_fail;
-      }
-      elem_obj->children[0] = key_entry;
-      elem_obj->children[1] = value_entry;
+      entry->value = val;
 
       // All succeeded, assign
-      result_elements[valid_elements] = elem;
-      valid_elements++;
+      children[valid_children] = entry;
+      valid_children++;
    }
 
-   result_list->n_elements = valid_elements;
+   result_obj->n_children = valid_children;
    return true;
 
 build_fail:
    // Cleanup partial
-   for (int j = 0; j < valid_elements; j++) {
-      Blizzard__Value__Value *elem = result_elements[j];
-      if (elem && elem->object) {
-         for (size_t k = 0; k < elem->object->n_children; k++) {
-            Blizzard__Value__Object__ChildrenEntry *entry = elem->object->children[k];
-            free(entry->key);
-            if (entry->value) {
-               free(entry->value->string);
-               free(entry->value);
-            }
-            free(entry);
+   for (int j = 0; j < valid_children; j++) {
+      Blizzard__Value__Object__ChildrenEntry *entry = children[j];
+      free(entry->key);
+      if (entry->value) {
+         if (entry->value->kind_case == BLIZZARD__VALUE__VALUE__KIND_STRING) {
+            free(entry->value->string);
+         } else if (entry->value->kind_case == BLIZZARD__VALUE__VALUE__KIND_BYTES) {
+            free(entry->value->bytes.data);
          }
-         free(elem->object->children);
-         free(elem->object);
-         free(elem);
+         free(entry->value);
       }
+      free(entry);
    }
-   free(result_elements);
-   free(result_list);
+   free(children);
+   free(result_obj);
    return false;
 }
 
@@ -621,6 +490,7 @@ void send_invoke_response(int sock, uint64_t id, const char *method, const Googl
    Blizzard__Plugin__Messages__PluginToManagerMessage msg = BLIZZARD__PLUGIN__MESSAGES__PLUGIN_TO_MANAGER_MESSAGE__INIT;
    Google__Protobuf__Any success_any = GOOGLE__PROTOBUF__ANY__INIT;
    Blizzard__Value__Value result_value = BLIZZARD__VALUE__VALUE__INIT;
+   success_any.type_url = NULL;
 
    // Initialize dynamic pointers
    const char **paths = NULL;
@@ -684,8 +554,8 @@ void send_invoke_response(int sock, uint64_t id, const char *method, const Googl
                         if (err != RBUS_ERROR_SUCCESS) {
                            error_msg = "rbus get failed";
                         } else {
-                           if (!build_keyvalue_list(pairs, num_results, &result_value, &error_msg)) {
-                              // build_keyvalue_list sets error_msg
+                           if (!build_keyvalue_object(pairs, num_results, &result_value, &error_msg)) {
+                              // build_keyvalue_object sets error_msg
                            }
                         }
                      }
@@ -708,32 +578,29 @@ void send_invoke_response(int sock, uint64_t id, const char *method, const Googl
             error_msg = "Parameters must be an object";
          } else {
             Blizzard__Value__Object *obj = param_value->object;
-            const char *key = NULL;
-            const char *value = NULL;
-
-            for (size_t i = 0; i < obj->n_children; i++) {
-               if (strcmp(obj->children[i]->key, "key") == 0 &&
-                  obj->children[i]->value->kind_case == BLIZZARD__VALUE__VALUE__KIND_STRING) {
-                  key = obj->children[i]->value->string;
-               } else if (strcmp(obj->children[i]->key, "value") == 0 &&
-                  obj->children[i]->value->kind_case == BLIZZARD__VALUE__VALUE__KIND_STRING) {
-                  value = obj->children[i]->value->string;
-               }
-            }
-
-            if (key == NULL || value == NULL) {
-               error_msg = "Missing or invalid 'key' or 'value' field";
+            if (obj->n_children != 1) {
+               error_msg = "Expected exactly one key-value pair in parameters";
             } else {
-               rbusError_t err = rbus_set_value(key, value);
-               result_value.kind_case = BLIZZARD__VALUE__VALUE__KIND_STRING;
-               if (err != RBUS_ERROR_SUCCESS) {
-                  error_msg = "rbus set failed";
-                  result_value.string = strdup("Failed to set property");
+               Blizzard__Value__Object__ChildrenEntry *entry = obj->children[0];
+               const char *key = entry->key;
+               Blizzard__Value__Value *value = entry->value;
+
+               if (key == NULL || value == NULL) {
+                  error_msg = "Invalid key or value in parameters";
+               } else if (value->kind_case != BLIZZARD__VALUE__VALUE__KIND_STRING) {
+                  error_msg = "Value must be a string for rbus_set_value";
                } else {
-                  result_value.string = strdup("Success");
-               }
-               if (!result_value.string) {
-                  error_msg = "Malloc failed for result string";
+                  rbusError_t err = rbus_set_value(key, value->string);
+                  result_value.kind_case = BLIZZARD__VALUE__VALUE__KIND_STRING;
+                  if (err != RBUS_ERROR_SUCCESS) {
+                     error_msg = "rbus set failed";
+                     result_value.string = strdup("Failed to set property");
+                  } else {
+                     result_value.string = strdup("Success");
+                  }
+                  if (!result_value.string) {
+                     error_msg = "Malloc failed for result string";
+                  }
                }
             }
             blizzard__value__value__free_unpacked(param_value, NULL);
@@ -751,89 +618,91 @@ void send_invoke_response(int sock, uint64_t id, const char *method, const Googl
          } else {
             Blizzard__Value__Object *obj = param_value->object;
             const char *method_name = NULL;
-            Blizzard__Value__List *params_list = NULL;
 
+            // Extract "method" from the object
             for (size_t i = 0; i < obj->n_children; i++) {
                if (strcmp(obj->children[i]->key, "method") == 0 &&
                   obj->children[i]->value->kind_case == BLIZZARD__VALUE__VALUE__KIND_STRING) {
                   method_name = obj->children[i]->value->string;
-               } else if (strcmp(obj->children[i]->key, "params") == 0 &&
-                  obj->children[i]->value->kind_case == BLIZZARD__VALUE__VALUE__KIND_LIST) {
-                  params_list = obj->children[i]->value->list;
+                  break;
                }
             }
 
-            if (method_name == NULL || params_list == NULL) {
-               error_msg = "Missing or invalid 'method' or 'params' field";
+            if (method_name == NULL) {
+               error_msg = "Missing or invalid 'method' field; expected a string";
             } else {
-               num_params = params_list->n_elements;
+               // Count parameters (all key-value pairs except "method")
+               num_params = obj->n_children > 0 ? obj->n_children - 1 : 0;
                if (num_params > 0) {
                   in_params = malloc(num_params * sizeof(KeyValuePair));
                   if (!in_params) {
                      error_msg = "Malloc failed for input parameters";
                   } else {
                      int valid_params = 0;
-                     for (size_t i = 0; i < num_params; i++) {
-                        if (params_list->elements[i]->kind_case != BLIZZARD__VALUE__VALUE__KIND_OBJECT) {
-                           error_msg = "All params must be objects";
-                           break;
+                     for (size_t i = 0; i < obj->n_children && valid_params < num_params; i++) {
+                        if (strcmp(obj->children[i]->key, "method") == 0) {
+                           continue;
                         }
-                        Blizzard__Value__Object *param_obj = params_list->elements[i]->object;
-                        const char *key = NULL;
-                        bool has_value = false;
-                        for (size_t j = 0; j < param_obj->n_children; j++) {
-                           if (strcmp(param_obj->children[j]->key, "key") == 0 &&
-                              param_obj->children[j]->value->kind_case == BLIZZARD__VALUE__VALUE__KIND_STRING) {
-                              key = param_obj->children[j]->value->string;
-                           } else if (strcmp(param_obj->children[j]->key, "value") == 0) {
-                              has_value = true;
-                              switch (param_obj->children[j]->value->kind_case) {
-                              case BLIZZARD__VALUE__VALUE__KIND_STRING:
-                                 in_params[valid_params].type = VALUE_TYPE_STRING;
-                                 in_params[valid_params].value.string = strdup(param_obj->children[j]->value->string);
-                                 break;
-                              case BLIZZARD__VALUE__VALUE__KIND_INTEGER:
-                                 in_params[valid_params].type = VALUE_TYPE_INTEGER;
-                                 in_params[valid_params].value.integer = param_obj->children[j]->value->integer;
-                                 break;
-                              case BLIZZARD__VALUE__VALUE__KIND_DOUBLE:
-                                 in_params[valid_params].type = VALUE_TYPE_DOUBLE;
-                                 in_params[valid_params].value.double_val = param_obj->children[j]->value->double_;
-                                 break;
-                              case BLIZZARD__VALUE__VALUE__KIND_BOOLEAN:
-                                 in_params[valid_params].type = VALUE_TYPE_BOOLEAN;
-                                 in_params[valid_params].value.boolean = param_obj->children[j]->value->boolean;
-                                 break;
-                              case BLIZZARD__VALUE__VALUE__KIND_BYTES:
-                                 in_params[valid_params].type = VALUE_TYPE_BYTES;
-                                 in_params[valid_params].value.bytes.len = param_obj->children[j]->value->bytes.len;
-                                 in_params[valid_params].value.bytes.data = malloc(param_obj->children[j]->value->bytes.len);
-                                 if (in_params[valid_params].value.bytes.data) {
-                                    memcpy(in_params[valid_params].value.bytes.data,
-                                       param_obj->children[j]->value->bytes.data,
-                                       param_obj->children[j]->value->bytes.len);
-                                 } else {
-                                    error_msg = "Malloc failed for bytes value";
-                                 }
-                                 break;
-                              default:
-                                 error_msg = "Unsupported value type in params";
-                                 break;
-                              }
-                           }
-                        }
-                        if (error_msg || key == NULL || !has_value) {
-                           error_msg = error_msg ? error_msg : "Invalid param object: missing 'key' or 'value'";
+                        const char *key = obj->children[i]->key;
+                        Blizzard__Value__Value *value = obj->children[i]->value;
+                        if (key == NULL || value == NULL) {
+                           error_msg = "Invalid key or value in parameters";
                            break;
                         }
                         in_params[valid_params].key = strdup(key);
                         if (!in_params[valid_params].key) {
                            error_msg = "Malloc failed for key";
-                           if (in_params[valid_params].type == VALUE_TYPE_STRING) {
-                              free(in_params[valid_params].value.string);
-                           } else if (in_params[valid_params].type == VALUE_TYPE_BYTES) {
-                              free(in_params[valid_params].value.bytes.data);
+                           break;
+                        }
+                        switch (value->kind_case) {
+                        case BLIZZARD__VALUE__VALUE__KIND_STRING:
+                           in_params[valid_params].type = VALUE_TYPE_STRING;
+                           in_params[valid_params].value.string = strdup(value->string);
+                           if (!in_params[valid_params].value.string) {
+                              error_msg = "Malloc failed for string value";
+                              free(in_params[valid_params].key);
+                              break;
                            }
+                           break;
+                        case BLIZZARD__VALUE__VALUE__KIND_INTEGER:
+                           in_params[valid_params].type = VALUE_TYPE_INTEGER;
+                           in_params[valid_params].value.integer = value->integer;
+                           break;
+                        case BLIZZARD__VALUE__VALUE__KIND_DOUBLE:
+                           in_params[valid_params].type = VALUE_TYPE_DOUBLE;
+                           in_params[valid_params].value.double_val = value->double_;
+                           break;
+                        case BLIZZARD__VALUE__VALUE__KIND_BOOLEAN:
+                           in_params[valid_params].type = VALUE_TYPE_BOOLEAN;
+                           in_params[valid_params].value.boolean = value->boolean;
+                           break;
+                        case BLIZZARD__VALUE__VALUE__KIND_BYTES:
+                           in_params[valid_params].type = VALUE_TYPE_BYTES;
+                           in_params[valid_params].value.bytes.len = value->bytes.len;
+                           in_params[valid_params].value.bytes.data = malloc(value->bytes.len);
+                           if (!in_params[valid_params].value.bytes.data) {
+                              error_msg = "Malloc failed for bytes value";
+                              free(in_params[valid_params].key);
+                              break;
+                           }
+                           memcpy(in_params[valid_params].value.bytes.data, value->bytes.data, value->bytes.len);
+                           break;
+                        case BLIZZARD__VALUE__VALUE__KIND_OBJECT: {
+                           in_params[valid_params].type = VALUE_TYPE_STRING;
+                           in_params[valid_params].value.string = serialize_object_to_string(value->object);
+                           if (!in_params[valid_params].value.string) {
+                              error_msg = "Failed to serialize object to string";
+                              free(in_params[valid_params].key);
+                              break;
+                           }
+                           break;
+                        }
+                        default:
+                           error_msg = "Unsupported value type in params";
+                           free(in_params[valid_params].key);
+                           break;
+                        }
+                        if (error_msg) {
                            break;
                         }
                         valid_params++;
@@ -851,8 +720,8 @@ void send_invoke_response(int sock, uint64_t id, const char *method, const Googl
                   if (err != RBUS_ERROR_SUCCESS) {
                      error_msg = "rbus invoke failed";
                   } else {
-                     if (!build_keyvalue_list(results, num_results, &result_value, &error_msg)) {
-                        // build_keyvalue_list sets error_msg
+                     if (!build_keyvalue_object(results, num_results, &result_value, &error_msg)) {
+                        // build_keyvalue_object sets error_msg
                      }
                   }
                }
@@ -886,6 +755,7 @@ void send_invoke_response(int sock, uint64_t id, const char *method, const Googl
    if (error_msg != NULL) {
       resp.status_case = BLIZZARD__PLUGIN__MESSAGES__INVOKE_RESPONSE__STATUS_ERROR;
       resp.error = error_msg;
+      fprintf(stderr, "%s() Error: %s\n", __FUNCTION__, error_msg);
    }
 
    msg.message_case = BLIZZARD__PLUGIN__MESSAGES__PLUGIN_TO_MANAGER_MESSAGE__MESSAGE_INVOKE_RESPONSE;
@@ -899,8 +769,9 @@ void send_invoke_response(int sock, uint64_t id, const char *method, const Googl
    }
    blizzard__plugin__messages__plugin_to_manager_message__pack(&msg, buf);
 
-   printf("Sent invoke response for id=%" PRIu64 "\n", id);
    send_message(sock, buf, len);
+
+   printf("Sent invoke response length %lu, for id=%" PRIu64 "\n", len, id);
 
 cleanup:
    if (results) {
@@ -926,23 +797,22 @@ cleanup:
       free(in_params);
    }
    // Cleanup result_value if built
-   if (result_value.kind_case == BLIZZARD__VALUE__VALUE__KIND_LIST && result_value.list) {
-      for (size_t i = 0; i < result_value.list->n_elements; i++) {
-         Blizzard__Value__Value *elem = result_value.list->elements[i];
-         if (elem && elem->object) {
-            for (size_t j = 0; j < elem->object->n_children; j++) {
-               free(elem->object->children[j]->key);
-               free(elem->object->children[j]->value->string);
-               free(elem->object->children[j]->value);
-               free(elem->object->children[j]);
+   if (result_value.kind_case == BLIZZARD__VALUE__VALUE__KIND_OBJECT && result_value.object) {
+      for (size_t i = 0; i < result_value.object->n_children; i++) {
+         Blizzard__Value__Object__ChildrenEntry *entry = result_value.object->children[i];
+         free(entry->key);
+         if (entry->value) {
+            if (entry->value->kind_case == BLIZZARD__VALUE__VALUE__KIND_STRING) {
+               free(entry->value->string);
+            } else if (entry->value->kind_case == BLIZZARD__VALUE__VALUE__KIND_BYTES) {
+               free(entry->value->bytes.data);
             }
-            free(elem->object->children);
-            free(elem->object);
-            free(elem);
+            free(entry->value);
          }
+         free(entry);
       }
-      free(result_value.list->elements);
-      free(result_value.list);
+      free(result_value.object->children);
+      free(result_value.object);
    } else if (result_value.kind_case == BLIZZARD__VALUE__VALUE__KIND_STRING) {
       free(result_value.string);
    }

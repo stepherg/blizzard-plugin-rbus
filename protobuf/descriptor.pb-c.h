@@ -33,7 +33,11 @@ typedef enum _Blizzard__Descriptor__BasicTypes {
   /*
    * Represents any type, used for dynamic or unknown types
    */
-  BLIZZARD__DESCRIPTOR__BASIC_TYPES__ANY = 5
+  BLIZZARD__DESCRIPTOR__BASIC_TYPES__ANY = 5,
+  /*
+   * Represents an object with no predefined structure
+   */
+  BLIZZARD__DESCRIPTOR__BASIC_TYPES__ANY_OBJECT = 6
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(BLIZZARD__DESCRIPTOR__BASIC_TYPES)
 } Blizzard__Descriptor__BasicTypes;
 

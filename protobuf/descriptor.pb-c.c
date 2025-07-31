@@ -435,7 +435,7 @@ const ProtobufCMessageDescriptor blizzard__descriptor__optional__descriptor =
   (ProtobufCMessageInit) blizzard__descriptor__optional__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCEnumValue blizzard__descriptor__basic_types__enum_values_by_number[6] =
+static const ProtobufCEnumValue blizzard__descriptor__basic_types__enum_values_by_number[7] =
 {
   { "BOOLEAN", "BLIZZARD__DESCRIPTOR__BASIC_TYPES__BOOLEAN", 0 },
   { "INTEGER", "BLIZZARD__DESCRIPTOR__BASIC_TYPES__INTEGER", 1 },
@@ -443,13 +443,15 @@ static const ProtobufCEnumValue blizzard__descriptor__basic_types__enum_values_b
   { "STRING", "BLIZZARD__DESCRIPTOR__BASIC_TYPES__STRING", 3 },
   { "BYTES", "BLIZZARD__DESCRIPTOR__BASIC_TYPES__BYTES", 4 },
   { "ANY", "BLIZZARD__DESCRIPTOR__BASIC_TYPES__ANY", 5 },
+  { "ANY_OBJECT", "BLIZZARD__DESCRIPTOR__BASIC_TYPES__ANY_OBJECT", 6 },
 };
 static const ProtobufCIntRange blizzard__descriptor__basic_types__value_ranges[] = {
-{0, 0},{0, 6}
+{0, 0},{0, 7}
 };
-static const ProtobufCEnumValueIndex blizzard__descriptor__basic_types__enum_values_by_name[6] =
+static const ProtobufCEnumValueIndex blizzard__descriptor__basic_types__enum_values_by_name[7] =
 {
   { "ANY", 5 },
+  { "ANY_OBJECT", 6 },
   { "BOOLEAN", 0 },
   { "BYTES", 4 },
   { "DOUBLE", 2 },
@@ -463,9 +465,9 @@ const ProtobufCEnumDescriptor blizzard__descriptor__basic_types__descriptor =
   "BasicTypes",
   "Blizzard__Descriptor__BasicTypes",
   "blizzard.descriptor",
-  6,
+  7,
   blizzard__descriptor__basic_types__enum_values_by_number,
-  6,
+  7,
   blizzard__descriptor__basic_types__enum_values_by_name,
   1,
   blizzard__descriptor__basic_types__value_ranges,

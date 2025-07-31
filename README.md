@@ -86,16 +86,10 @@ Expected response:
 {
   "jsonrpc": "2.0",
   "id": 1,
-  "result": [
-    {
-      "key": "Device.DeviceInfo.ModelName",
-      "value": "VCPE"
-    },
-    {
-      "key": "Device.DeviceInfo.SerialNumber",
-      "value": "G3Q5W9TG09"
-    }
-  ]
+  "result": {
+    "Device.DeviceInfo.ModelName": "VCPE",
+    "Device.DeviceInfo.SerialNumber": "G3Q5W9TG09"
+  }
 }
 ```
 
@@ -107,7 +101,7 @@ curl -s -X POST http://127.0.0.1:8821 \
    "jsonrpc": "2.0",
    "method": "org.rdk.broadband.TR181.1.set",
    "id": 1,
-   "params": {"key":"Device.Test.Property","value":"testvalue"}
+   "params": {"Device.Test.Property":"testvalue"}
 }'
 ```
 
@@ -129,7 +123,7 @@ curl -s -X POST http://127.0.0.1:8821 \
    "jsonrpc": "2.0",
    "method": "org.rdk.broadband.TR181.1.invoke",
    "id": 1,
-   "params": {"method": "Device.Reboot()","params": [{"key": "Delay","value": 10}]}
+   "params": {"method": "Device.Reboot()", "params": {"Delay":10}}
 }'
 ```
 
@@ -139,12 +133,9 @@ Expected response:
 {
   "jsonrpc": "2.0",
   "id": 1,
-  "result": [
-    {
-      "key": "Status",
-      "value": "Reboot scheduled"
+  "result": {
+      "Status": "Reboot scheduled"
     }
-  ]
 }
 ```
 
@@ -156,7 +147,7 @@ curl -s -X POST http://127.0.0.1:8821 \
    "jsonrpc": "2.0",
    "method": "org.rdk.broadband.TR181.1.invoke",
    "id": 1,
-   "params": {"method": "Device.GetSystemInfo()","params": []}
+   "params": {"method": "Device.GetSystemInfo()","params": {}}
 }'
 ```
 
@@ -166,19 +157,10 @@ Expected response:
 {
   "jsonrpc": "2.0",
   "id": 1,
-  "result": [
-    {
-      "key": "SerialNumber",
-      "value": "G3Q5W9TG09"
-    },
-    {
-      "key": "SystemTime",
-      "value": "1753901014.330479"
-    },
-    {
-      "key": "UpTime",
-      "value": "455778"
-    }
-  ]
+  "result": {
+    "SerialNumber": "G3Q5W9TG09",
+    "SystemTime": "1753961215.285178",
+    "UpTime": 13070
+  }
 }
 ```
