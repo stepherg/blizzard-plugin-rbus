@@ -13,24 +13,24 @@ typedef enum {
 } ValueType;
 
 typedef struct {
-   char *key;
+   char* key;
    ValueType type;
    union {
-      char *string;
+      char* string;
       int64_t integer;
       double double_val;
       bool boolean;
       struct {
-         uint8_t *data;
+         uint8_t* data;
          size_t len;
       } bytes;
    } value;
 } KeyValuePair;
 
 void rbus_init(void);
-rbusError_t rbus_get_values(const char **propertyNames, int numProperties, int *numPairs, KeyValuePair **pairs);
-rbusError_t rbus_set_value(const char *propertyName, const char *val_str);
-rbusError_t rbus_invoke_method(const char *methodName, int numParams, KeyValuePair *inParams, int *numResults, KeyValuePair **results);
+rbusError_t rbus_get_values(const char** propertyNames, int numProperties, int* numPairs, KeyValuePair** pairs);
+rbusError_t rbus_set_value(const char* propertyName, const char* val_str);
+rbusError_t rbus_invoke_method(const char* methodName, int numParams, KeyValuePair* inParams, int* numResults, KeyValuePair** results);
 
 #define VALUE_TYPE_SIZE 32
 
